@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/pets', PetController::class)->except(['create','edit']);
+Route::middleware('auth:sanctum')->resource('/pets', PetController::class)->except(['create','edit']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
