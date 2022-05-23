@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
+
+  alivePets = 5;
+
+  deadPets = 10;
+
   constructor() { }
 
   ngOnInit(): void {
