@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('type');
-            $table->string('gender');
-            $table->integer('age');
-            $table->string('description');
-            $table->enum('status',['NEW', 'BOOKED', 'SOLD OUT']);
+            $table->string('species');
+            $table->date('dateOfBirth');
+            $table->date('dateOfDeath');
+            $table->string('note');
 
             $table->timestamps();
         });

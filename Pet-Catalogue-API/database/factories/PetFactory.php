@@ -18,11 +18,10 @@ class PetFactory extends Factory
     {
         return [
             'name'        => $this->faker->name(),
-            'type'        => $this->faker->numerify("PET-####"),
-            'gender'      => $this->faker->randomElement(['Male', 'Female']),
-            'age'         => $this->faker->numberBetween(1,20),
-            'description' => $this->faker->sentence(),
-            'status'      => $this->faker->randomElement(['NEW', 'BOOKED', 'SOLD OUT']),
+            'species'        => $this->faker->numerify("PET-####"),
+            'dateOfBirth' => $this->faker->date(),
+            'dateOfDeath' => $this->faker->date(),
+            'note' => $this->faker->sentence(),
         ];
     }
 }

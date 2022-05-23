@@ -26,11 +26,10 @@ class StorePetRequest extends FormRequest
     {
         return [
             'name'        => 'required',
-            'type'        => 'required',
-            'gender'      => ['nullable', Rule::in(['Male', 'Female'])],
-            'age'         => 'nullable',
-            'description' => 'nullable',
-            'status'      => ['required', Rule::in(['NEW', 'BOOKED', 'SOLD OUT'])],
+            'species'     => 'required',
+            'dateOfBirth' => 'required',
+            'dateOfDeath' => 'nullable',
+            'note'        => 'nullable',
         ];
     }
 }

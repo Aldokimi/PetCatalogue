@@ -9,9 +9,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PetListComponent } from './pet-list/pet-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
-import { PetFormComponent } from './pet-form/pet-form.component';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { PetFormComponent } from './pet-form/pet-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -19,16 +21,19 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
     MainPageComponent,
     NavBarComponent,
     PetListComponent,
+    PetFormComponent,
     ProfileComponent,
     FooterComponent,
-    PetFormComponent,
     PetEditComponent,
-    PetDetailsComponent
+    PetDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

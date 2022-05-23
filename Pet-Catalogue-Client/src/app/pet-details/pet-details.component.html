@@ -1,0 +1,34 @@
+<div style="width: 5px ; height: 20px;"></div>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+            <h5 class="card-title">Name</h5>
+            <p class="card-text">{{ pet.name }}</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Species</h5>
+                <p class="card-text">{{ pet.species }}</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Date of Birth</h5>
+                <p class="card-text">{{ pet.dateOfBirth }}</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Date of Death</h5>
+                <p class="card-text">{{ pet.dateOfDeath }}</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Note</h5>
+                <p class="card-text">{{ pet.note }}</p>
+            </div>
+            <div class="container mb-3">
+                <button 
+                    (click)="handleDelte()"
+                    role="button"
+                    class="btn btn-outline-danger btn-lg btn-block" 
+                >DELTE</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,12 @@
+
+
 <div style="width: 5px ; height: 50px;"></div>
 <div class="container">
 
-    <button type="button" class="btn btn-success btn-lg btn-block" routerLink="/pets/new">Add New Pet</button>
+    <button type="button" class="btn btn-success btn-lg btn-block" routerLink="/pets/addPet/new">Add New Pet</button>
 
     <div style="width: 5px ; height: 50px;"></div>
-    <table class="table table-bordered table-dark">
+    <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">Show Pet</th>
@@ -17,13 +19,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row"><button type="button" class="btn btn-outline-light btn-lg btn-block" routerLink="/pets/1/">1</button></th>
-            <td>Caty</td>
-            <td>Cat</td>
-            <td colspan="2">2020-09-06</td>
-            <td>This cat is cute!</td>
-            <td><button type="button" class="btn btn-outline-warning btn-lg btn-block" routerLink="/pets/1/edit">EDIT</button></td>
+          <tr
+            *ngFor="let pet of pets"
+          >
+            <th scope="row" 
+            class="table-dark">
+              <button type="button" 
+                      class="btn btn-outline-light btn-lg btn-block" 
+                      [routerLink]="['/pets/', pet.id]"
+              >{{ pet.id }}</button>
+            </th>
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.species }}</td>
+            <td >{{ pet.dateOfBirth }}</td>
+            <td >{{ pet.dateOfDeath }}</td>
+            <td>{{ pet.note }}</td>
+            <td
+            class="table-dark">
+              <button type="button" 
+                      class="btn btn-outline-warning btn-lg btn-block" 
+                      routerLink="/pets/{{ pet.id }}/edit"
+              >EDIT</button>
+            </td>
           </tr>
         </tbody>
     </table>

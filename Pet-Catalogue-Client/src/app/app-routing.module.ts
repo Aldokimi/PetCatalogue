@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
-import { PetFormComponent } from './pet-form/pet-form.component';
 import { PetListComponent } from './pet-list/pet-list.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -21,8 +20,8 @@ const routes: Routes = [
     component : PetDetailsComponent
   },
   {
-    path: "pets/new",
-    component: PetFormComponent
+    path: "pets/addPet/new",
+    component : PetEditComponent
   },
   {
     path: "pets/:id/edit",

@@ -26,11 +26,10 @@ class UpdatePetRequest extends FormRequest
     {
         return [
             'name'        => 'sometimes|required',
-            'type'        => 'sometimes|required',
-            'gender'      => ['sometimes', Rule::in(['Male', 'Female'])],
-            'age'         => 'sometimes',
-            'description' => 'sometimes',
-            'status'      => ['sometimes', 'required', Rule::in(['NEW', 'BOOKED', 'SOLD OUT'])],
+            'species'     => 'sometimes|required',
+            'dateOfBirth' => 'sometimes|required',
+            'dateOfDeath' => 'sometimes',
+            'note'        => 'sometimes',
         ];
     }
 }

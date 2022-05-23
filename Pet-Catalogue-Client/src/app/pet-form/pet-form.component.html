@@ -1,18 +1,86 @@
 <div class="container">
-    <form>
+    <form [formGroup]="petForm" (submit)="onSubmit()">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="name">Name</label>
+            <input 
+                formControlName="name"
+                type="text" 
+                class="form-control" 
+                id="name" 
+                placeholder="Name"
+                required
+                [class.is-invalid]="name?.invalid && (name?.dirty || name?.touched)"
+                [class.isvalid]="name?.valid"
+            >
+            
+            <div class="invalid-feedback" *ngIf="name?.invalid && name?.errors?.['required']">
+                Please provide an pet name!
+            </div>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="species">Species</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="species" 
+                placeholder="Species"
+                formControlName="species"
+                required pattern="PET-\d+"
+                [class.is-invalid]="species?.invalid && (species?.dirty || species?.touched)"
+                [class.isvalid]="species?.valid"
+            >
+            <div class="invalid-feedback" *ngIf="species?.invalid && species?.errors?.['required']">
+                Please provide an pet species!
+            </div>
+            <div class="invalid-feedback" *ngIf="species?.invalid && species?.errors?.['pattern']">
+                Please provide an pet species pattern in form of PET-###...!
+            </div>
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input 
+                type="date" 
+                class="form-control" 
+                id="dateOfBirth"
+                placeholder="Date of Birth"
+                formControlName="dateOfBirth"
+                required
+                [class.is-invalid]="dateOfBirth?.invalid && (dateOfBirth?.dirty || dateOfBirth?.touched)"
+                [class.isvalid]="dateOfBirth?.valid"
+            >
+            <div class="invalid-feedback" *ngIf="dateOfBirth?.invalid && dateOfBirth?.errors?.['required']">
+                Please provide an pet date of birth!
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+            <label for="dateOfDeath">Date of Death</label>
+            <input 
+                type="date" 
+                class="form-control" 
+                id="dateOfDeath"
+                placeholder="Date of Death"
+                formControlName="dateOfDeath"
+                [class.is-invalid]="dateOfDeath?.invalid && (dateOfDeath?.dirty || dateOfDeath?.touched)"
+                [class.isvalid]="dateOfDeath?.valid"
+            >
+            <div class="invalid-feedback" *ngIf="dateOfBirth?.invalid && dateOfBirth?.errors?.['required']">
+                Please provide an pet date of death!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="note">Note</label>
+            <textarea 
+                class="form-control" 
+                id="note"
+                rows="3"
+                formControlName="note"
+                [class.is-invalid]="note?.invalid && (note?.dirty || note?.touched)"
+                [class.isvalid]="note?.valid"
+            ></textarea>
+            <div class="invalid-feedback" *ngIf="note?.invalid && note?.errors?.['required']">
+                Please provide an note for the pet!
+            </div>
+          </div>
+        <button type="submit" class="btn btn-primary" [disabled]="petForm.invalid">Submit</button>
     </form>
 </div>

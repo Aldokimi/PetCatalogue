@@ -1,4 +1,6 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { PetService } from '../pet.service';
 
 @Component({
   selector: 'app-main-page',
@@ -8,13 +10,29 @@ import { Component, OnInit } from '@angular/core';
 export class MainPageComponent implements OnInit {
 
 
-  alivePets = 5;
+  
 
-  deadPets = 10;
+  deadPets  = 0;
+  alivePets = 0;
 
-  constructor() { }
+  constructor(
+    private petSerivce : PetService,
+  ) { }
 
-  ngOnInit(): void {
+
+  async filterPets(){
+    
+    const pets = await this.petSerivce.getPets();
+    pets.forEach(pet => {
+      if (formatDate(pet.dateOfBirth,'yyyy-MM-dd','en_US') < formatDate(pet.dateOfDeath, 'yyyy/MM/dd', 'en')){
+        this.deadPets  += 1;
+      }else{
+        this.alivePets += 1;
+      }
+    });  
   }
-
+  
+  ngOnInit(): void {
+    this.filterPets();
+  }
 }
